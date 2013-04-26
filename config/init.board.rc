@@ -29,11 +29,10 @@ on init
 
 on fs
     mount ext4 /dev/block/ndsystem /system
+    # Create /data and /cashe file systems if not done already.
     chmod 0777 /system/etc/disk_preparing.sh
     class_start ingenic
-    wait /dev/disk_preparing_done 10
-    # write /proc/exec /system/bin/sh:/system/etc/disk_preparing.sh
-    # exec /system/bin/sh:/system/etc/disk_preparing.sh
+    wait /dev/disk_preparing_done 100
     mount_all /fstab.warrior
     setprop ro.crypto.fuse_sdcard true
 

@@ -24,5 +24,5 @@ else
 	/system/bin/umount /data
 fi
 
-# Inform init's igenic service
+# Inform init's ingenic service that we are done.
  echo "Finished disk_preparing.sh" > /dev/disk_preparing_done
